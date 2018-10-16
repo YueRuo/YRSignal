@@ -23,7 +23,6 @@
     View *view = [[View alloc]init];
     [self.view addSubview:view];
     
-    
     [self sendYRSignalName:TestSignalKey userInfo:@"我要干一番事业，谁来陪我！" callBack:^(__weak id receiver, id callbackData) {
         NSLog(@"发送者发现一名响应者：%@，响应信息为：%@",[receiver class],callbackData);
     }];

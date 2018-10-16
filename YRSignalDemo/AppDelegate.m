@@ -16,7 +16,7 @@
 
 @implementation AppDelegate
 
--(id)handleYRSignal:(YRSignal *)signal{
+- (id)handleYRSignal:(YRSignal *)signal{
     NSLog(@"AppDelegate 发现了监听的信号,发信号的人为：%@,内容为：%@",[[signal sender]class],signal.userInfo);
     return @"我才是老大";
 }
