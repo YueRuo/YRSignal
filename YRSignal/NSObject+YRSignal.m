@@ -129,21 +129,24 @@
         case YRSignalOptionALL:{
             for (NSInteger i = observers.count - 1; i >= 0; i--) {
                 id obj = [observers pointerAtIndex:i];
+                id data = [obj handleYRSignal:signal];
                 if (signal.callBack) {
-                    signal.callBack(obj,[obj handleYRSignal:signal]);
+                    signal.callBack(obj,data);
                 }
             }
             break;}
         case YRSignalOptionOnlyToLast:{
             id obj = [observers pointerAtIndex:observers.count-1];
+            id data = [obj handleYRSignal:signal];
             if (signal.callBack) {
-                signal.callBack(obj,[obj handleYRSignal:signal]);
+                signal.callBack(obj,data);
             }
             break;}
         case YRSignalOptionOnlyToFirst:{
             id obj = [observers pointerAtIndex:0];
+            id data = [obj handleYRSignal:signal];
             if (signal.callBack) {
-                signal.callBack(obj,[obj handleYRSignal:signal]);
+                signal.callBack(obj,data);
             }
             break;}
         default:
