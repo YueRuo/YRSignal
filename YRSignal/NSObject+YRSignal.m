@@ -125,6 +125,11 @@
 
 - (void)sendYRSignal:(YRSignal *)signal{
     NSPointerArray *observers = [_signalBusDic objectForKey:signal.name];
+    [observers addPointer:NULL];//不加这句，无法清除nil值
+    [observers compact];//删除数组中的nil值
+    if (observers.count == 0) {
+        return;
+    }
     switch (signal.option) {
         case YRSignalOptionALL:{
             for (NSInteger i = observers.count - 1; i >= 0; i--) {
